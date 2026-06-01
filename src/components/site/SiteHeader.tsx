@@ -118,8 +118,9 @@ export function SiteHeader() {
         <div className="container-page flex items-center gap-1 overflow-x-auto">
           {NAV_ITEMS.map((item) => (
             <Link
-              key={item.to}
+              key={item.label}
               to={item.to}
+              params={item.params as never}
               activeOptions={{ exact: item.to === "/" }}
               className="relative px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary transition data-[status=active]:text-primary"
             >
