@@ -26,14 +26,14 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const NAV_ITEMS = [
-  { label: "Home", to: "/" },
-  { label: "Latest Jobs", to: "/category/latest-jobs" },
-  { label: "Admit Card", to: "/category/admit-card" },
-  { label: "Results", to: "/category/results" },
-  { label: "Syllabus", to: "/category/syllabus" },
-  { label: "Answer Key", to: "/category/answer-key" },
-  { label: "Admission", to: "/category/admission" },
-] as const;
+  { label: "Home", to: "/" as const, params: undefined },
+  { label: "Latest Jobs", to: "/category/$slug" as const, params: { slug: "latest-jobs" } },
+  { label: "Admit Card", to: "/category/$slug" as const, params: { slug: "admit-card" } },
+  { label: "Results", to: "/category/$slug" as const, params: { slug: "results" } },
+  { label: "Syllabus", to: "/category/$slug" as const, params: { slug: "syllabus" } },
+  { label: "Answer Key", to: "/category/$slug" as const, params: { slug: "answer-key" } },
+  { label: "Admission", to: "/category/$slug" as const, params: { slug: "admission" } },
+];
 
 export const SOCIAL = {
   whatsapp: "https://chat.whatsapp.com/",
