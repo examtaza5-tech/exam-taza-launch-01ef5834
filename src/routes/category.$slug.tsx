@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Calendar } from "lucide-react";
-import { getCategory, getPostsByCategory, formatDate, CATEGORIES } from "@/lib/site-data";
+import { getCategory, getPostsByCategory, formatDate, CATEGORIES, type Post } from "@/lib/site-data";
 import { PostSidebar } from "@/components/site/PostSidebar";
 import { DisclaimerBox } from "@/components/site/DisclaimerBox";
 
