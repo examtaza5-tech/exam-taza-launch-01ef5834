@@ -59,7 +59,7 @@ function CategoryPage() {
                   No posts found in this category yet. Check back soon!
                 </li>
               )}
-              {posts.map((p) => (
+              {posts.map((p: Post) => (
                 <li key={p.slug} className="px-4 sm:px-5 py-4 hover:bg-surface-muted transition">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                     <div className="min-w-0 flex-1">
