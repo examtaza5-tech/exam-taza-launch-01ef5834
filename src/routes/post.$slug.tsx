@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Calendar, Folder, Download, ExternalLink, FileText, Megaphone, MessageCircle, Send } from "lucide-react";
-import { getPost, getCategory, formatDate, SOCIAL } from "@/lib/site-data";
+import { getPost, getCategory, formatDate, SOCIAL, type Post, type Category } from "@/lib/site-data";
 import { PostSidebar } from "@/components/site/PostSidebar";
 import { DisclaimerBox } from "@/components/site/DisclaimerBox";
 
