@@ -8,7 +8,8 @@ export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
     const category = getCategory(params.slug);
     if (!category) throw notFound();
-    return { category, posts: getPostsByCategory(category.slug) };
+    const posts = getPostsByCategory(category.slug);
+    return { category, posts };
   },
   head: ({ loaderData }) => {
     const title = loaderData ? `${loaderData.category.title} — ExamTaza.in` : "Category — ExamTaza.in";
