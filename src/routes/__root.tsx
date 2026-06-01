@@ -79,14 +79,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "ExamTaza.in — Sarkari Jobs, Results, Admit Card & Syllabus" },
+      { name: "description", content: "Latest government jobs, admit cards, results, syllabus, answer keys and admission updates across India. Fast, mobile-friendly Sarkari portal." },
+      { name: "author", content: "ExamTaza.in" },
+      { property: "og:site_name", content: "ExamTaza.in" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
