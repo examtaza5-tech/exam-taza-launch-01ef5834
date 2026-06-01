@@ -35,7 +35,7 @@ const LINK_ICON = {
 } as const;
 
 function PostPage() {
-  const { post, category } = Route.useLoaderData();
+  const { post, category } = Route.useLoaderData() as { post: Post; category: Category };
 
   return (
     <div className="container-page py-6 sm:py-8">
