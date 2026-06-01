@@ -137,8 +137,9 @@ export function SiteHeader() {
           <div className="container-page py-3 flex flex-col">
             {NAV_ITEMS.map((item) => (
               <Link
-                key={item.to}
+                key={item.label}
                 to={item.to}
+                params={item.params as never}
                 onClick={() => setOpen(false)}
                 activeOptions={{ exact: item.to === "/" }}
                 className="py-2.5 text-sm font-medium border-b border-border/60 text-foreground/90 data-[status=active]:text-primary"
