@@ -5,7 +5,7 @@ import { CATEGORIES, SOCIAL, DISCLAIMER_TEXT } from "@/lib/site-data";
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-16 bg-[oklch(0.18_0.03_255)] text-[oklch(0.92_0.01_240)]">
+    <footer className="mt-16 bg-[oklch(0.28_0.07_255)] text-[oklch(0.94_0.01_240)]">
       <div className="container-page py-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to="/" className="flex items-center gap-2">
