@@ -74,9 +74,8 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/60">
+        <div className="container-page py-4 text-center text-xs text-white/70">
           <p>© {year} ExamTaza.in — All Rights Reserved.</p>
-          <p>Made with care for Indian aspirants.</p>
         </div>
       </div>
     </footer>
