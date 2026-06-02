@@ -74,7 +74,7 @@ function HomePage() {
   return (
     <div className="container-page py-6 sm:py-8 space-y-10 sm:space-y-14">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-[oklch(0.45_0.19_260)] to-[oklch(0.4_0.2_265)] text-primary-foreground px-5 sm:px-10 py-10 sm:py-16 shadow-[var(--shadow-card-hover)]">
+      <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-[oklch(0.45_0.19_260)] to-[oklch(0.4_0.2_265)] text-primary-foreground px-5 sm:px-8 py-6 sm:py-9 shadow-[var(--shadow-card-hover)]">
         <div className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
             backgroundImage:
@@ -82,52 +82,41 @@ function HomePage() {
             backgroundSize: "40px 40px, 60px 60px",
           }} />
         <div className="relative max-w-3xl">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-3 py-1 text-xs font-medium">
-            <Sparkles className="h-3.5 w-3.5" /> Updated daily — Trusted by thousands
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-2.5 py-0.5 text-[11px] font-medium">
+            <Sparkles className="h-3 w-3" /> Updated daily
           </span>
-          <h1 className="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
-            Latest Sarkari Jobs, Results & <span className="text-warning">Admit Cards</span> at one place
+          <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
+            Latest Sarkari Jobs, Results & <span className="text-warning">Admit Cards</span>
           </h1>
-          <p className="mt-3 text-sm sm:text-lg text-white/85 max-w-2xl">
-            Your fast, mobile-friendly destination for every government exam update — notifications, syllabus, answer keys and admissions.
-          </p>
 
           <form
             role="search"
             onSubmit={(e) => e.preventDefault()}
-            className="mt-6 flex items-stretch bg-white rounded-xl p-1.5 shadow-lg max-w-xl"
+            className="mt-4 flex items-stretch bg-white rounded-xl p-1 shadow-lg max-w-xl"
           >
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 type="search"
                 placeholder="Search SSC, UPSC, Railway, Banking..."
-                className="w-full pl-9 pr-3 py-2.5 rounded-lg text-foreground text-sm outline-none bg-transparent"
+                className="w-full pl-9 pr-3 py-2 rounded-lg text-foreground text-sm outline-none bg-transparent"
               />
             </div>
             <button
               type="submit"
-              className="rounded-lg bg-primary text-primary-foreground px-4 sm:px-5 text-sm font-semibold hover:bg-primary-hover transition"
+              className="rounded-lg bg-primary text-primary-foreground px-4 text-sm font-semibold hover:bg-primary-hover transition"
             >
               Search
             </button>
           </form>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            <a
-              href={SOCIAL.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-whatsapp text-white text-sm font-semibold px-4 py-2.5 hover:opacity-90 transition shadow"
-            >
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-whatsapp text-white text-xs sm:text-sm font-semibold px-3 py-2 hover:opacity-90 transition shadow">
               <MessageCircle className="h-4 w-4" /> Join WhatsApp
             </a>
-            <a
-              href={SOCIAL.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-telegram text-white text-sm font-semibold px-4 py-2.5 hover:opacity-90 transition shadow"
-            >
+            <a href={SOCIAL.telegram} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-telegram text-white text-xs sm:text-sm font-semibold px-3 py-2 hover:opacity-90 transition shadow">
               <Send className="h-4 w-4" /> Join Telegram
             </a>
           </div>

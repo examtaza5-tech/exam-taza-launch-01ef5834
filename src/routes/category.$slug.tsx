@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Calendar } from "lucide-react";
-import { getCategory, getPostsByCategory, formatDate, CATEGORIES, type Post } from "@/lib/site-data";
+import { getCategory, getPostsByCategory, formatDate, type Post } from "@/lib/site-data";
 import { PostSidebar } from "@/components/site/PostSidebar";
 import { DisclaimerBox } from "@/components/site/DisclaimerBox";
 
@@ -91,36 +91,17 @@ function CategoryPage() {
               ))}
             </ul>
           </div>
-
-          <DisclaimerBox />
         </div>
 
-        {/* Sidebar */}
+        {/* Sidebar (Top Categories lives only inside PostSidebar) */}
         <div className="lg:sticky lg:top-[140px] lg:self-start">
-          <div className="rounded-xl bg-surface border border-border shadow-[var(--shadow-card)] overflow-hidden mb-6">
-            <div className="bg-primary text-primary-foreground px-4 py-2.5">
-              <h3 className="text-sm font-bold">Top Categories</h3>
-            </div>
-            <ul className="p-2 grid grid-cols-2 gap-2">
-              {CATEGORIES.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    to="/category/$slug"
-                    params={{ slug: c.slug }}
-                    className={`block rounded-lg border px-3 py-2 text-xs font-medium text-center transition ${
-                      c.slug === category.slug
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-surface-muted border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
-                    }`}
-                  >
-                    {c.short}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
           <PostSidebar />
         </div>
+      </div>
+
+      {/* Disclaimer directly above footer */}
+      <div className="mt-8">
+        <DisclaimerBox />
       </div>
     </div>
   );
