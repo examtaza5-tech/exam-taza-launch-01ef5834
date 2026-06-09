@@ -1,22 +1,26 @@
 <?php get_header(); ?>
-<section class="section">
-    <div class="container">
-        <div class="layout">
-            <div>
-                <div class="post-list">
-                    <div class="post-list-head"><span><?php printf( esc_html__( 'Search results for: %s', 'examtaza' ), '"' . esc_html( get_search_query() ) . '"' ); ?></span></div>
+<div class="container page-wrap">
+    <div class="layout">
+        <div>
+            <div class="cat-list">
+                <div class="cat-list-head"><?php printf( esc_html__( 'Search results for: "%s"', 'examtaza' ), esc_html( get_search_query() ) ); ?></div>
+                <ul class="cat-list-items">
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                        <a class="post-row" href="<?php the_permalink(); ?>">
-                            <span class="date"><?php echo esc_html( get_the_date( 'd M' ) ); ?></span>
-                            <span class="title"><?php the_title(); ?></span>
-                        </a>
+                        <li>
+                            <div class="info">
+                                <div class="row-meta"><span class="update-date"><?php echo examtaza_icon( 'calendar', 'icon icon-sm' ); ?> <?php echo esc_html( get_the_date( 'd M Y' ) ); ?></span></div>
+                                <a class="row-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </div>
+                            <a class="cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'View Details', 'examtaza' ); ?> <?php echo examtaza_icon( 'arrow-right', 'icon icon-sm' ); ?></a>
+                        </li>
                     <?php endwhile; else : ?>
-                        <div style="padding:24px;text-align:center;color:var(--muted-foreground)"><?php esc_html_e( 'No matching posts found.', 'examtaza' ); ?></div>
+                        <li style="justify-content:center;color:var(--muted-foreground);padding:32px 16px"><?php esc_html_e( 'No matching posts found.', 'examtaza' ); ?></li>
                     <?php endif; ?>
-                </div>
+                </ul>
             </div>
-            <?php get_sidebar(); ?>
+            <?php the_posts_pagination( array( 'prev_text' => '«', 'next_text' => '»' ) ); ?>
         </div>
+        <div class="sidebar-col"><?php get_sidebar(); ?></div>
     </div>
-</section>
+</div>
 <?php get_footer();

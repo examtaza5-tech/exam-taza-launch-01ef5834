@@ -21,10 +21,10 @@ $socials = examtaza_socials();
         <div class="container">
             <span class="tagline"><?php esc_html_e( "India's trusted source for Sarkari Jobs, Results & Admit Cards", 'examtaza' ); ?></span>
             <div class="socials">
-                <?php if ( $socials['instagram'] ) : ?><a href="<?php echo esc_url( $socials['instagram'] ); ?>" target="_blank" rel="noopener" aria-label="Instagram">IG</a><?php endif; ?>
-                <?php if ( $socials['youtube'] ) : ?><a href="<?php echo esc_url( $socials['youtube'] ); ?>" target="_blank" rel="noopener" aria-label="YouTube">YT</a><?php endif; ?>
-                <?php if ( $socials['telegram'] ) : ?><a href="<?php echo esc_url( $socials['telegram'] ); ?>" target="_blank" rel="noopener" aria-label="Telegram">TG</a><?php endif; ?>
-                <?php if ( $socials['whatsapp'] ) : ?><a href="<?php echo esc_url( $socials['whatsapp'] ); ?>" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><?php endif; ?>
+                <?php if ( $socials['instagram'] ) : ?><a href="<?php echo esc_url( $socials['instagram'] ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><?php echo examtaza_icon( 'instagram', 'icon icon-sm' ); ?></a><?php endif; ?>
+                <?php if ( $socials['youtube'] ) : ?><a href="<?php echo esc_url( $socials['youtube'] ); ?>" target="_blank" rel="noopener" aria-label="YouTube"><?php echo examtaza_icon( 'youtube', 'icon icon-sm' ); ?></a><?php endif; ?>
+                <?php if ( $socials['telegram'] ) : ?><a href="<?php echo esc_url( $socials['telegram'] ); ?>" target="_blank" rel="noopener" aria-label="Telegram"><?php echo examtaza_icon( 'send', 'icon icon-sm' ); ?></a><?php endif; ?>
+                <?php if ( $socials['whatsapp'] ) : ?><a href="<?php echo esc_url( $socials['whatsapp'] ); ?>" target="_blank" rel="noopener" aria-label="WhatsApp"><?php echo examtaza_icon( 'message', 'icon icon-sm' ); ?></a><?php endif; ?>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ $socials = examtaza_socials();
             <?php if ( has_custom_logo() ) {
                 the_custom_logo();
             } else { ?>
-                <span class="brand-mark">E</span>
+                <span class="brand-mark"><?php echo examtaza_icon( 'graduation' ); ?></span>
                 <span class="brand-text">
                     <span class="brand-name"><?php bloginfo( 'name' ); ?><span>.in</span></span>
                     <span class="brand-sub"><?php esc_html_e( 'Jobs · Results · Admit Cards', 'examtaza' ); ?></span>
@@ -43,21 +43,23 @@ $socials = examtaza_socials();
         </a>
 
         <form role="search" method="get" class="header-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <?php echo examtaza_icon( 'search' ); ?>
             <input type="search" name="s" placeholder="<?php esc_attr_e( 'Search jobs, results, admit cards…', 'examtaza' ); ?>" value="<?php echo get_search_query(); ?>" />
         </form>
 
         <div class="header-cta">
-            <?php if ( $socials['whatsapp'] ) : ?><a class="btn btn-whatsapp" href="<?php echo esc_url( $socials['whatsapp'] ); ?>" target="_blank" rel="noopener">WhatsApp</a><?php endif; ?>
-            <?php if ( $socials['telegram'] ) : ?><a class="btn btn-telegram" href="<?php echo esc_url( $socials['telegram'] ); ?>" target="_blank" rel="noopener">Telegram</a><?php endif; ?>
+            <?php if ( $socials['whatsapp'] ) : ?><a class="btn btn-whatsapp" href="<?php echo esc_url( $socials['whatsapp'] ); ?>" target="_blank" rel="noopener"><?php echo examtaza_icon( 'message', 'icon icon-sm' ); ?> WhatsApp</a><?php endif; ?>
+            <?php if ( $socials['telegram'] ) : ?><a class="btn btn-telegram" href="<?php echo esc_url( $socials['telegram'] ); ?>" target="_blank" rel="noopener"><?php echo examtaza_icon( 'send', 'icon icon-sm' ); ?> Telegram</a><?php endif; ?>
         </div>
 
         <button class="menu-toggle" aria-label="<?php esc_attr_e( 'Toggle menu', 'examtaza' ); ?>" aria-expanded="false">
-            <span></span>
+            <?php echo examtaza_icon( 'menu' ); ?>
         </button>
     </div>
 
     <div class="mobile-search">
         <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <?php echo examtaza_icon( 'search' ); ?>
             <input type="search" name="s" placeholder="<?php esc_attr_e( 'Search…', 'examtaza' ); ?>" value="<?php echo get_search_query(); ?>" />
         </form>
     </div>

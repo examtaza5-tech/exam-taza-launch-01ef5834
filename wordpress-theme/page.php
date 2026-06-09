@@ -1,19 +1,19 @@
 <?php
 /** Default page template @package ExamTaza */
 get_header(); ?>
-<section class="section">
-    <div class="container">
-        <div class="layout">
-            <div>
-                <?php while ( have_posts() ) : the_post(); ?>
-                    <article class="article-card">
-                        <h1 class="article-title"><?php the_title(); ?></h1>
+<div class="container page-wrap">
+    <div class="layout">
+        <div>
+            <?php while ( have_posts() ) : the_post(); ?>
+                <article class="article-card">
+                    <div class="article-body">
+                        <h1 style="font-size:28px;font-weight:800;letter-spacing:-0.02em;margin:0 0 12px"><?php the_title(); ?></h1>
                         <div class="article-content"><?php the_content(); ?></div>
-                    </article>
-                <?php endwhile; ?>
-            </div>
-            <?php get_sidebar(); ?>
+                    </div>
+                </article>
+            <?php endwhile; ?>
         </div>
+        <div class="sidebar-col"><?php get_sidebar(); ?></div>
     </div>
-</section>
+</div>
 <?php get_footer();

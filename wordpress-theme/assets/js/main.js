@@ -15,7 +15,7 @@
     if (!article) return;
     var en = article.querySelector('[data-lang-en]');
     var hi = article.querySelector('[data-lang-hi]');
-    var titleEl = article.querySelector('.article-title');
+    var titleEl = article.querySelector('.article-banner h1');
     sw.querySelectorAll('button').forEach(function (btn) {
       btn.addEventListener('click', function () {
         sw.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });

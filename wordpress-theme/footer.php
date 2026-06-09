@@ -9,20 +9,20 @@ $year    = date( 'Y' );
     <div class="container">
         <div class="footer-grid">
             <div>
-                <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" style="color:#fff">
-                    <span class="brand-mark">E</span>
+                <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <span class="brand-mark"><?php echo examtaza_icon( 'graduation' ); ?></span>
                     <span class="brand-text">
-                        <span class="brand-name" style="color:#fff"><?php bloginfo( 'name' ); ?></span>
+                        <span class="brand-name"><?php bloginfo( 'name' ); ?><span style="color:var(--primary)">.in</span></span>
                     </span>
                 </a>
-                <p style="margin-top:12px;font-size:14px;color:rgba(255,255,255,.7);line-height:1.6">
-                    <?php esc_html_e( 'Latest Sarkari Jobs, Results, Admit Cards, Syllabus, Answer Keys and Admission updates — fast, mobile friendly and free for every aspirant.', 'examtaza' ); ?>
+                <p class="footer-about">
+                    <?php esc_html_e( 'ExamTaza.in brings you the latest Sarkari Jobs, Results, Admit Cards, Syllabus, Answer Keys and Admission updates — fast, mobile friendly and free for every aspirant.', 'examtaza' ); ?>
                 </p>
                 <div class="footer-socials">
-                    <?php if ( $socials['whatsapp'] ) : ?><a class="whatsapp" href="<?php echo esc_url( $socials['whatsapp'] ); ?>" target="_blank" rel="noopener" aria-label="WhatsApp">W</a><?php endif; ?>
-                    <?php if ( $socials['telegram'] ) : ?><a class="telegram" href="<?php echo esc_url( $socials['telegram'] ); ?>" target="_blank" rel="noopener" aria-label="Telegram">T</a><?php endif; ?>
-                    <?php if ( $socials['instagram'] ) : ?><a class="instagram" href="<?php echo esc_url( $socials['instagram'] ); ?>" target="_blank" rel="noopener" aria-label="Instagram">I</a><?php endif; ?>
-                    <?php if ( $socials['youtube'] ) : ?><a class="youtube" href="<?php echo esc_url( $socials['youtube'] ); ?>" target="_blank" rel="noopener" aria-label="YouTube">Y</a><?php endif; ?>
+                    <?php if ( $socials['whatsapp'] ) : ?><a class="whatsapp" href="<?php echo esc_url( $socials['whatsapp'] ); ?>" target="_blank" rel="noopener" aria-label="WhatsApp"><?php echo examtaza_icon( 'message', 'icon icon-sm' ); ?></a><?php endif; ?>
+                    <?php if ( $socials['telegram'] ) : ?><a class="telegram" href="<?php echo esc_url( $socials['telegram'] ); ?>" target="_blank" rel="noopener" aria-label="Telegram"><?php echo examtaza_icon( 'send', 'icon icon-sm' ); ?></a><?php endif; ?>
+                    <?php if ( $socials['instagram'] ) : ?><a class="instagram" href="<?php echo esc_url( $socials['instagram'] ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><?php echo examtaza_icon( 'instagram', 'icon icon-sm' ); ?></a><?php endif; ?>
+                    <?php if ( $socials['youtube'] ) : ?><a class="youtube" href="<?php echo esc_url( $socials['youtube'] ); ?>" target="_blank" rel="noopener" aria-label="YouTube"><?php echo examtaza_icon( 'youtube', 'icon icon-sm' ); ?></a><?php endif; ?>
                 </div>
             </div>
 
@@ -65,7 +65,7 @@ $year    = date( 'Y' );
     </div>
     <div class="footer-bottom">
         <div class="container">
-            &copy; <?php echo esc_html( $year ); ?> <?php bloginfo( 'name' ); ?> &mdash; <?php esc_html_e( 'All Rights Reserved.', 'examtaza' ); ?>
+            &copy; <?php echo esc_html( $year ); ?> <?php bloginfo( 'name' ); ?>.in &mdash; <?php esc_html_e( 'All Rights Reserved.', 'examtaza' ); ?>
         </div>
     </div>
 </footer>

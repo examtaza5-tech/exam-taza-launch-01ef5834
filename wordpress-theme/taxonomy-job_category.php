@@ -1,34 +1,66 @@
 <?php
-/** Job category archive @package ExamTaza */
+/** Category / archive — premium @package ExamTaza */
 get_header();
-$term = get_queried_object();
+
+$is_tax = is_tax( 'job_category' );
+$term   = $is_tax ? get_queried_object() : null;
+$title  = $is_tax ? $term->name : ( is_category() ? single_cat_title( '', false ) : ( is_search() ? sprintf( __( 'Search: %s', 'examtaza' ), get_search_query() ) : get_the_archive_title() ) );
+$desc   = $is_tax ? term_description( $term ) : get_the_archive_description();
 ?>
-<section class="hero" style="padding:28px 0">
-    <div class="container">
-        <h1 style="font-size:clamp(20px,3vw,28px);margin-bottom:6px"><?php echo esc_html( $term->name ); ?></h1>
-        <p style="margin:0;font-size:14px;opacity:.9"><?php echo esc_html( $term->description ? $term->description : sprintf( __( 'All latest updates in %s.', 'examtaza' ), $term->name ) ); ?></p>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="layout">
-            <div>
-                <div class="post-list">
-                    <div class="post-list-head"><span><?php echo esc_html( $term->name ); ?></span></div>
-                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                        <a class="post-row" href="<?php the_permalink(); ?>">
-                            <span class="date"><?php echo esc_html( get_the_date( 'd M Y' ) ); ?></span>
-                            <span class="title"><?php the_title(); ?></span>
-                        </a>
-                    <?php endwhile; else : ?>
-                        <div style="padding:24px;text-align:center;color:var(--muted-foreground)"><?php esc_html_e( 'No posts in this category yet.', 'examtaza' ); ?></div>
-                    <?php endif; ?>
+<div class="container page-wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'examtaza' ); ?></a>
+        <span class="sep">/</span><span class="current"><?php echo esc_html( wp_strip_all_tags( $title ) ); ?></span>
+    </nav>
+
+    <header class="cat-hero">
+        <h1><?php echo esc_html( wp_strip_all_tags( $title ) ); ?></h1>
+        <?php if ( $desc ) : ?><p><?php echo wp_kses_post( $desc ); ?></p><?php endif; ?>
+    </header>
+
+    <div class="layout">
+        <div>
+            <div class="cat-list">
+                <div class="cat-list-head">
+                    <?php
+                    global $wp_query;
+                    printf( esc_html__( 'Showing %d posts', 'examtaza' ), (int) $wp_query->found_posts );
+                    ?>
                 </div>
-                <div class="pagination"><?php echo paginate_links(); ?></div>
-                <div class="disclaimer-box"><span style="font-size:20px">ℹ️</span><span><?php echo esc_html( examtaza_disclaimer_text() ); ?></span></div>
+                <ul class="cat-list-items">
+                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+                        $terms = get_the_terms( get_the_ID(), 'job_category' );
+                        $t     = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0] : null;
+                    ?>
+                        <li>
+                            <div class="info">
+                                <div class="row-meta">
+                                    <?php if ( $t ) : ?>
+                                        <span class="update-badge"><?php echo esc_html( examtaza_category_short( $t->name ) ); ?></span>
+                                    <?php endif; ?>
+                                    <span class="update-date"><?php echo examtaza_icon( 'calendar', 'icon icon-sm' ); ?> <?php echo esc_html( get_the_date( 'd M Y' ) ); ?></span>
+                                </div>
+                                <a class="row-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </div>
+                            <a class="cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'View Details', 'examtaza' ); ?> <?php echo examtaza_icon( 'arrow-right', 'icon icon-sm' ); ?></a>
+                        </li>
+                    <?php endwhile; else : ?>
+                        <li style="justify-content:center;color:var(--muted-foreground);padding:32px 16px"><?php esc_html_e( 'No posts found in this category yet. Check back soon!', 'examtaza' ); ?></li>
+                    <?php endif; ?>
+                </ul>
             </div>
+
+            <?php the_posts_pagination( array( 'prev_text' => '«', 'next_text' => '»' ) ); ?>
+
+            <div class="disclaimer-box" style="margin-top:24px">
+                <?php echo examtaza_icon( 'info', 'icon icon-lg' ); ?>
+                <span><?php echo esc_html( examtaza_disclaimer_text() ); ?></span>
+            </div>
+        </div>
+
+        <div class="sidebar-col">
             <?php get_sidebar(); ?>
         </div>
     </div>
-</section>
+</div>
 <?php get_footer();
