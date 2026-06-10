@@ -597,3 +597,28 @@ ul, ol { margin: 0 0 1em; padding-left: 1.25rem; }
 .notice h1 { font-size: 64px; color: var(--primary); margin: 0; }
 
 input, textarea, select, button { font-family: inherit; }
+
+/* ============ Static / About / Contact / Disclaimer pages ============ */
+.static-page { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+.static-head h1, .static-h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; color: var(--foreground); margin: 0; }
+.static-head p { margin: 8px 0 0; color: var(--muted-foreground); }
+
+.contact-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+.contact-card { display: flex; align-items: flex-start; gap: 12px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-card); text-decoration: none; color: inherit; transition: border-color .15s; }
+.contact-card:hover { border-color: var(--primary); }
+.contact-card .ico { display: inline-flex; height: 40px; width: 40px; align-items: center; justify-content: center; border-radius: 10px; flex-shrink: 0; }
+.contact-card .ico.primary { background: color-mix(in oklab, var(--primary) 12%, transparent); color: var(--primary); }
+.contact-card .ico.whatsapp { background: color-mix(in oklab, var(--whatsapp, #25D366) 12%, transparent); color: var(--whatsapp, #25D366); }
+.contact-card .label { margin: 0; font-weight: 600; color: var(--foreground); }
+.contact-card .sub { margin: 2px 0 0; font-size: 13px; color: var(--muted-foreground); }
+
+.contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-card); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.contact-form h2 { margin: 0; font-size: 18px; font-weight: 700; color: var(--foreground); }
+.contact-form .row { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .contact-form .row { grid-template-columns: 1fr 1fr; } }
+.contact-form label { font-size: 13px; display: block; }
+.contact-form label span { font-weight: 500; color: var(--foreground); display: block; margin-bottom: 6px; }
+.contact-form input, .contact-form textarea { width: 100%; border: 1px solid var(--border); background: var(--surface-muted, #f7f8fb); border-radius: 8px; padding: 10px 12px; font-size: 14px; outline: none; transition: border-color .15s, box-shadow .15s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 20%, transparent); }
+.contact-form button { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; }

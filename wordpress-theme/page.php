@@ -1,5 +1,25 @@
 <?php
-/** Default page template @package ExamTaza */
+/**
+ * Default page template — auto-routes well-known slugs to their dedicated
+ * ExamTaza templates so the site mirrors the React design out of the box.
+ * @package ExamTaza
+ */
+$slug = is_singular() ? get_post_field( 'post_name', get_queried_object_id() ) : '';
+$map  = array(
+    'about'           => 'page-templates/about.php',
+    'about-us'        => 'page-templates/about.php',
+    'contact'         => 'page-templates/contact.php',
+    'contact-us'      => 'page-templates/contact.php',
+    'disclaimer'      => 'page-templates/disclaimer.php',
+    'privacy'         => 'page-templates/privacy.php',
+    'privacy-policy'  => 'page-templates/privacy.php',
+    'terms'           => 'page-templates/terms.php',
+    'terms-and-conditions' => 'page-templates/terms.php',
+);
+if ( isset( $map[ $slug ] ) && file_exists( get_template_directory() . '/' . $map[ $slug ] ) ) {
+    include get_template_directory() . '/' . $map[ $slug ];
+    return;
+}
 get_header(); ?>
 <div class="container page-wrap">
     <div class="layout">
